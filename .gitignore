@@ -1,0 +1,6 @@
+# Índice ChunkHound — recriável localmente
+data/*.duckdb
+
+# Segredos locais (não versionar cópias pessoais)
+.env
+.env.*

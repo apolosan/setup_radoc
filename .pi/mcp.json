@@ -1,0 +1,163 @@
+{
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "directTools": true
+    },
+    "ripgrep": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "mcp-ripgrep@latest"
+      ],
+      "directTools": true
+    },
+    "chunkhound": {
+      "command": "chunkhound",
+      "args": [
+        "mcp",
+        "--db",
+        "./data/chunks.duckdb",
+        "--config",
+        ".chunkhound.json",
+        "--stdio",
+        "$(pwd)"
+      ],
+      "directTools": true
+    },
+    "filesystem": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/user/Documentos/radoc"
+      ],
+      "directTools": true
+    },
+    "arxiv": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/home/user/Documentos/radoc/papers:/app/papers",
+        "arxiv-mcp-server:local"
+      ],
+      "directTools": true
+    },
+    "neo4j-memory": {
+      "command": "bunx",
+      "args": [
+        "@knowall-ai/mcp-neo4j-agent-memory"
+      ],
+      "directTools": true,
+      "env": {
+        "NEO4J_URI": "bolt://localhost:7687",
+        "NEO4J_USERNAME": "neo4j",
+        "NEO4J_PASSWORD": "<YOUR_NEO4J_PASSWORD>",
+        "NEO4J_DATABASE": "neo4j"
+      }
+    },
+    "design-patterns": {
+      "command": "bun",
+      "args": [
+        "/home/user/Documentos/design_patterns_mcp/dist/mcp-server.js"
+      ],
+      "directTools": true
+    },
+    "desktop-commander": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wonderwhy-er/desktop-commander@latest"
+      ],
+      "directTools": true
+    },
+    "taskmanager": {
+      "command": "bun",
+      "args": [
+        "/home/user/Documentos/mcp-shrimp-task-manager/dist/index.js"
+      ],
+      "directTools": true,
+      "env": {
+        "DATA_DIR": "/home/user/Documentos/radoc/data/",
+        "TEMPLATES_USE": "en",
+        "ENABLE_GUI": "false"
+      }
+    },
+    "knip": {
+      "command": "bun",
+      "args": [
+        "/home/user/Documentos/knip-mcp-server/build/index.js"
+      ],
+      "directTools": true
+    },
+    "shadcn": {
+      "command": "bunx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ],
+      "directTools": true
+    },
+    "radix-mcp-server": {
+      "command": "bunx",
+      "args": [
+        "@gianpieropuleo/radix-mcp-server@latest",
+        "--github-api-key",
+        "<YOUR_<YOUR_GITHUB_API_KEY>>"
+      ],
+      "directTools": true
+    },
+    "flyonui": {
+      "command": "flyonui-mcp",
+      "args": [],
+      "directTools": true
+    },
+    "codemod": {
+      "command": "bunx",
+      "args": [
+        "codemod@latest",
+        "mcp"
+      ],
+      "directTools": false,
+      "enabled": false
+    },
+    "grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "directTools": true
+    },
+    "ssh-server": {
+      "command": "node",
+      "args": [
+        "/home/user/Documentos/SSH-MCP/build/index.js"
+      ],
+      "env": {
+        "NODE_NO_WARNINGS": "1"
+      },
+      "directTools": true
+    },
+    "codebase-state-manager": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "/home/user/Documentos/codebase_state_manager_mcp/",
+        "python",
+        "/home/user/Documentos/codebase_state_manager_mcp/init_neo4j_and_mcp.py"
+      ],
+      "directTools": true,
+      "env": {
+        "DB_MODE": "sqlite",
+        "RATE_LIMIT_ENABLED": "false",
+        "VOLUME_PATH": "/tmp/radoc_branches/"
+      }
+    }
+  }
+}
