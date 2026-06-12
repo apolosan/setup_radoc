@@ -1,4 +1,4 @@
-# AGENTS_OPTIMIZED.md - Diretrizes Enxutas para Agentes de IA em Desenvolvimento de Software
+# AGENTS_AGNOSTIC.md - Diretrizes Enxutas para Agentes de IA em Desenvolvimento de Software
 
 > **Versao**: 1.0.0-optimized  
 > **Escopo**: Agnostico de projeto, linguagem, framework e plataforma  
