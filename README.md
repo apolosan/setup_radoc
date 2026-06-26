@@ -15,8 +15,7 @@ No RADOC, a evolução do código não foi tratada como diálogo isolado com um 
 | [`AGENTS.md`](AGENTS.md) | Regras globais para agentes: 5W2H, hierarquia MCP, orquestração por subagentes, context-mode |
 | [`opencode.json`](opencode.json) | Configuração de servidores MCP e plugins para **OpenCode** |
 | [`.pi/mcp.json`](.pi/mcp.json) | Configuração de servidores MCP para **Pi Coding Agent** |
-| [`.pi/skills/analist/`](.pi/skills/analist/) | Skill de execução direta (análise, implementação, debug) com 5W1H e PDCA |
-| [`.pi/skills/orchestrator/`](.pi/skills/orchestrator/) | Skill de orquestração com delegação a subagentes |
+| [`.pi/skills/`](.pi/skills/) | Catálogo de skills especializadas por domínio (22 skills) — matriz de acionamento em [`AGENTS.md`](AGENTS.md) (sec. 4.2) |
 | [`data/`](data/) | Dados locais do ChunkHound (ex.: `chunks.duckdb`) — gerado em uso |
 
 ## Servidores MCP configurados
@@ -72,7 +71,17 @@ Copie ou aponte o `opencode.json` para o diretório do projeto RADOC (ou use com
 
 ### 3. Pi Coding Agent
 
-O diretório `.pi/` segue a convenção do Pi: `mcp.json` registra servidores; `skills/` expõe **analist** (execução direta) e **orchestrator** (delegação). Ative skills com `/skill:analist` ou `/skill:orchestrator` conforme a tarefa.
+O diretório `.pi/` segue a convenção do Pi: `mcp.json` registra servidores; `skills/` expõe skills especializadas por domínio. As skills genéricas **analist** e **orchestrator** foram substituídas por um catálogo ampliado. Exemplos de acionamento:
+
+| Situação | Skill | Comando |
+|----------|-------|---------|
+| Implementação e evolução de código (padrão) | `desenvolvedor-codigo` | `/skill:desenvolvedor-codigo` |
+| Delegação a subagentes | `orquestrador-subagentes` | `/skill:orquestrador-subagentes` |
+| Bugs e regressões | `depurador-codigo` | `/skill:depurador-codigo` |
+| Testes (TDD) | `testador-codigo` | `/skill:testador-codigo` |
+| QA, aceite e release | `analista-qa` | `/skill:analista-qa` |
+
+Consulte [`AGENTS.md`](AGENTS.md) (sec. 4.2) para o catálogo completo, incluindo backend, frontend, LGPD, acessibilidade, integrações institucionais e demais especializações.
 
 ### 4. AGENTS.md
 
